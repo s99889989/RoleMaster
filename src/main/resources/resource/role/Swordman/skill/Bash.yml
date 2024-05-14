@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/bash.png'
+DisplayName: '§e狂擊'
+Directions:
+- '§6對敵方單體造成{custom_skill_Bash_value}%物理傷害，並有'
+- '§630%機率擊暈目標。'
+
+NeedTarget: true
+TargetDistance: 4
+CoolDown: 2
+CastTime: 0
+CastDelay: 1
+Mana: 1
+Value: '100+{custom_skill_Bash_level_now}*90'
+Action:
+- Mythicskill[skill=Swordman_Bash]

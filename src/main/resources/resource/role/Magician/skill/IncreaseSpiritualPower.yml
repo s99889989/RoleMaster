@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/increase_spiritual_power.png'
+DisplayName: '§e禪心'
+Directions:
+- ''
+- '§6使用後恢復{custom_skill_IncreaseSpiritualPower_value}點魔力值。'
+
+NeedTarget: false
+PassiveSkill: true
+TargetDistance: 0
+CoolDown: 20
+CastTime: 0
+Mana: 0
+Value: '{custom_skill_IncreaseSpiritualPower_level_now}*10'
+Action:
+- Mythicskill[skill=Magician_IncreaseSpiritualPower]

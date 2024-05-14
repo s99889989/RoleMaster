@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/fire_bolt.png'
+DisplayName: '§e火箭術'
+Directions:
+- '§6從天空中降落火箭攻擊敵方單體，使'
+- '§6其受到魔法攻擊{custom_skill_FireBolt_value}%火屬性魔法傷'
+- '§6害'
+
+NeedTarget: true
+TargetDistance: 12
+CoolDown: 2
+CastTime: 1
+Mana: 5
+Value: '500+{custom_skill_FireBolt_level_now}*200'
+Action:
+- Mythicskill[skill=Magician_FireBolt]

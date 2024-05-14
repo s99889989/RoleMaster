@@ -1,0 +1,17 @@
+MaxLevel: 5
+Icon: 'minecraft:class/archer/skill/anklesnare.png'
+DisplayName: '§e定位陷阱'
+Directions:
+- '§6在腳下佈置陷阱，觸發後對目標造成'
+- '§6{custom_skill_Anklesnare_value2}%魔法傷害，並定身{custom_skill_Anklesnare_value}秒。'
+
+NeedTarget: false
+TargetDistance: 6
+CoolDown: 2
+CastTime: 1
+CastDelay: 0
+Mana: 1
+Value: '{custom_skill_Anklesnare_level_now}'
+Value2: '1000+{custom_skill_Anklesnare_level_now}*200'
+Action:
+- Mythicskill[skill=Archer_Anklesnare]

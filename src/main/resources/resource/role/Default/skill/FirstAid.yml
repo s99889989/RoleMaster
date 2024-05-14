@@ -1,0 +1,13 @@
+MaxLevel: 10
+Icon: 'minecraft:class/novice/skill/first_aid.png'
+DisplayName: '§e緊急治療'
+Directions:
+- '§6快速恢復自身{custom_skill_FirstAid_value}點生命值。'
+NeedTarget: false
+TargetDistance: 10
+CoolDown: '{custom_skill_FirstAid_level_now}*1'
+CastTime: 1
+Mana: '{custom_skill_FirstAid_level_now}*2'
+Value: '{custom_skill_FirstAid_level_now}*10'
+Action:
+- Mythicskill[skill=Novice_FirstAid]

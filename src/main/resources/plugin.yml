@@ -1,0 +1,11 @@
+name: RoleMaster
+version: '${version}'
+main: com.daxton.rolemaster.RoleMaster
+api-version: '1.16'
+softdepend: [UnrealCore, PlaceholderAPI, MythicMobs]
+authors: [s99889989]
+folia-supported: true
+commands:
+  rolemaster:
+    description: Basic instructions.
+    aliases: rom

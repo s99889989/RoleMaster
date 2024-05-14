@@ -1,0 +1,532 @@
+Gui:
+  Type: Inventory
+  Position: '5'
+  X: '0'
+  Y: '0'
+  Width: '300'
+  Height: '200'
+  Image: gui/background/background_2.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+  Mask: 'true'
+  Tooltip: ''
+ContentList:
+  SkillList:
+    Type: Container
+    Position: '1'
+    X: '5'
+    Y: '5'
+    Width: '130'
+    Height: '190'
+    ActualWidth: '120'
+    ActualHeight: '190'
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: 2
+    Use: 'true'
+    ContentList:
+      SkillContainer:
+        Type: Container
+        Position: '1'
+        X: '5'
+        Y: '5'
+        Width: '120'
+        Height: '30'
+        ActualWidth: '100'
+        ActualHeight: '30'
+        Image: gui/container/container_1.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          SelectButton:
+            Type: Button
+            Position: 1
+            X: 0
+            Y: 0
+            Width: 90
+            Height: 30
+            Image: gui/button/button_default.png
+            Color: '#FFFFFF'
+            Transparent: 0
+            HoverImage: gui/button/button_hover.png
+            HoverColor: '#FFFFFF'
+            HoverTransparent: 0
+            ClickImage: gui/button/button_hover.png
+            ClickColor: '#FFFFFF'
+            ClickTransparent: 0
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+          IconImage:
+            Type: Image
+            Position: '1'
+            X: '5'
+            Y: '5'
+            Width: '20'
+            Height: '20'
+            Image: 'minecraft:class/novice/skill/first_aid.png'
+            Color: '#FFFFFF'
+            Transparent: '255'
+          Text:
+            Type: Text
+            Position: '1'
+            X: '30'
+            Y: '5'
+            Text:
+            - '{custom_skill_name}'
+            - '{custom_skill_level_now}/{custom_skill_level_max}'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          LevelUpButton:
+            Type: Button
+            Position: '3'
+            X: '-5'
+            Y: '5'
+            Width: '20'
+            Height: '20'
+            Image: gui/button/button_default.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/button/button_hover.png
+            HoverColor: '#FFFFFF'
+            HoverTransparent: '255'
+            ClickImage: gui/button/button_hover.png
+            ClickColor: '#FFFFFF'
+            ClickTransparent: '255'
+            Text: +
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+  ToMenuContainer:
+    Type: Container
+    Position: '3'
+    X: -5
+    Y: 5
+    Width: '155'
+    Height: 18
+    ActualWidth: '155'
+    ActualHeight: 18
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: 0
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    Use: 'true'
+    ContentList:
+      ButtonAttribute:
+        Type: Button
+        Position: 4
+        X: 0
+        Y: 0
+        Width: 30
+        Height: 18
+        Image: gui/button/button_default.png
+        Color: '#FFFFFF'
+        Transparent: '255'
+        HoverImage: gui/button/button_hover.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: '255'
+        ClickImage: gui/button/button_hover.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: '255'
+        Text: '屬性'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      ButtonSkill:
+        Type: Button
+        Position: 4
+        X: 38
+        Y: 0
+        Width: 30
+        Height: 18
+        Image: gui/button/button_default.png
+        Color: '#FFFFFF'
+        Transparent: '255'
+        HoverImage: gui/button/button_hover.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: '255'
+        ClickImage: gui/button/button_hover.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: '255'
+        Text: '技能'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Text:
+        Type: Text
+        Position: 1
+        X: 75
+        Y: 6
+        Text:
+        - '技能點數: %role_skill_point%'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+  SkillDirections:
+    Type: Container
+    Position: '3'
+    X: -5
+    Y: 28
+    Width: '155'
+    Height: 130
+    ActualWidth: '155'
+    ActualHeight: 130
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: '1'
+    Use: 'true'
+    ContentList:
+      Condition:
+        Type: Text
+        Position: '1'
+        X: 4
+        Y: 5
+        Text:
+        - '技能名稱: %role_select_skill_name%'
+        - 'SP消耗: %role_select_skill_mana%'
+        - 'CD時間: %role_select_skill_cd%'
+        - '發動時間: %role_select_skill_ct%'
+        - '需要目標: %role_select_skill_nt%'
+        - '是否為被動: %role_select_skill_passive%'
+        - '說明:'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Directions:
+        Type: Text
+        Position: '1'
+        X: 4
+        Y: 75
+        Text:
+        - ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Width: 50
+        Space: 11
+        Width: '0'
+  BindContainer:
+    Type: Container
+    Position: '9'
+    X: '-5'
+    Y: '-5'
+    Width: '155'
+    Height: '30'
+    ActualWidth: '155'
+    ActualHeight: '30'
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: '1'
+    Use: 'true'
+    ContentList:
+      Select_1:
+        Type: Button
+        Position: 1
+        X: 5
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Select_2:
+        Type: Button
+        Position: 1
+        X: 30
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Select_3:
+        Type: Button
+        Position: 1
+        X: 55
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Select_4:
+        Type: Button
+        Position: 1
+        X: 80
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Select_5:
+        Type: Button
+        Position: 1
+        X: 105
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      Select_6:
+        Type: Button
+        Position: 1
+        X: 130
+        Y: 5
+        Width: 20
+        Height: 20
+        Image: gui/slot/slot5.png
+        Color: '#FFFFFF'
+        Transparent: 255
+        HoverImage: gui/slot/slot5.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: 200
+        ClickImage: gui/slot/slot5.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: 255
+        Text: ''
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      
+      Bind_1:
+        Type: Image
+        Position: '1'
+        X: 6
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Bind_2:
+        Type: Image
+        Position: '1'
+        X: 31
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Bind_3:
+        Type: Image
+        Position: '1'
+        X: 56
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Bind_4:
+        Type: Image
+        Position: '1'
+        X: 81
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Bind_5:
+        Type: Image
+        Position: '1'
+        X: 106
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Bind_6:
+        Type: Image
+        Position: '1'
+        X: 131
+        Y: 6
+        Width: 18
+        Height: 18
+        Image: 'minecraft:class/novice/skill/first_aid.png'
+        Color: '#FFFFFF'
+        Transparent: 0
+      Text_1:
+        Type: Text
+        Position: '1'
+        X: '12'
+        Y: '11'
+        Text:
+        - Z
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Text_2:
+        Type: Text
+        Position: '1'
+        X: '37'
+        Y: '11'
+        Text:
+        - X
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Text_3:
+        Type: Text
+        Position: '1'
+        X: '62'
+        Y: '11'
+        Text:
+        - C
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Text_4:
+        Type: Text
+        Position: '1'
+        X: '87'
+        Y: '11'
+        Text:
+        - V
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Text_5:
+        Type: Text
+        Position: '1'
+        X: '112'
+        Y: '11'
+        Text:
+        - B
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+      Text_6:
+        Type: Text
+        Position: '1'
+        X: '137'
+        Y: '11'
+        Text:
+        - N
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'

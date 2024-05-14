@@ -1,0 +1,14 @@
+MaxLevel: 10
+Icon: 'minecraft:class/novice/skill/slam.png'
+DisplayName: '§e重擊'
+Directions:
+- '§6對敵方單體造成{custom_skill_Slam_value}%物理傷害。'
+NeedTarget: true
+TargetDistance: 3
+CoolDown: 2
+CastTime: 0
+CastDelay: 1
+Mana: '{custom_skill_Slam_level_now}*2'
+Value: '100+{custom_skill_Slam_level_now}*20'
+Action:
+- Mythicskill[skill=Novice_Slam]

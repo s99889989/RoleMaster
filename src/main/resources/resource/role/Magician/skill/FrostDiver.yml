@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/frost_diver.png'
+DisplayName: '§e冰凍術'
+Directions:
+- '§6對敵方單體造成魔法攻擊{custom_skill_FrostDiver_value}%水屬性'
+- '§6魔法傷害，並有使敵人陷入冰凍狀態'
+- '§6持續3秒。'
+
+NeedTarget: true
+TargetDistance: 14
+CoolDown: 2
+CastTime: 1
+Mana: '{custom_skill_FrostDiver_level_now}*3'
+Value: '100+{custom_skill_FrostDiver_level_now}*30'
+Action:
+- Mythicskill[skill=Magician_FrostDiver]

@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/provoke.png'
+DisplayName: '§e挑釁'
+Directions:
+- '§6挑釁周圍魔物增加{custom_skill_Provoke_value}點威脅值，'
+- '§6並降低目標魔物10點防禦，持續10秒。'
+
+
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 3
+CastTime: 0
+Mana: 10
+Value: '{custom_skill_Provoke_level_now}*100'
+Action:
+- Mythicskill[skill=Swordman_Provoke]

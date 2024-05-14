@@ -1,0 +1,313 @@
+#Command (通用)
+#------------------------------------------------#
+#技能等級上升
+#Skill level increases
+LevelSkillUp:
+  Skills:
+  - Sound{s=class_levelup} @self
+
+#技能詠唱 (開始)
+#Skill chant (Start)
+SkillChantStart:
+  Skills:
+  - Sound{s=skills_casttime} @self
+  - RoleModel{m=skill_casttime;dt=5} @target
+
+#技能詠唱 (過程)
+#Skill chant (Tick)
+SkillChantTick:
+  Skills:
+  - RoleModel{m=skill_casttime;dt=5} @target
+ 
+#技能詠唱 (結束)
+#Skill chant (End)
+SkillChantEnd:
+  Skills:
+  - RoleModel{m=skill_casttime;dt=5} @target
+
+#Default (初心者)
+#------------------------------------------------#
+#重擊
+#Slam
+Novice_Slam:
+  Skills:
+  - RoleDamage{a=100+%role_skill_Slam_level_now%*20;sound=attack_acolyte_hit;type=MeleeMultiply} @target
+
+#緊急治療
+#FirstAid
+Novice_FirstAid:
+  Skills:
+  - RoleHeal{a=%role_skill_FirstAid_level_now%*5;sound=skills_ab_heal_effect} @self
+
+
+#Archer (弓箭手)
+#------------------------------------------------#
+
+#定位陷阱
+#Anklesnare
+Archer_Anklesnare:
+  Skills:
+  - Totem{ch=1;i=10;d=150;id=200;onTick=Archer_Anklesnare_Tick;onHit=Archer_Anklesnare_Hit;hR=0.5;vR=1;hnp=true} @self
+  - RoleHoloModel{mark=ArrowShower;model=skill_anklesnare;duration=150;cy=true} @self
+
+Archer_Anklesnare_Tick:
+  Skills:
+  #- effect:particles{p=reddust;color=#66B3FF;a=1} @origin
+  
+Archer_Anklesnare_Hit:
+  Skills:
+  - RoleHoloModel{mark=ArrowShower;a=catch;model=skill_anklesnare;duration=%role_skill_Anklesnare_level_now%*20;tp=false;cy=true}
+  - RoleStun{probability=100;duration=%role_skill_Anklesnare_level_now%*20} @ENO{r=1.5}
+  - RoleDamage{a=1000+%role_skill_Anklesnare_level_now%*200;sound=lf2_damge1;type=MagicMultiply} @ENO{r=1.5}
+  
+
+#箭雨
+#ArrowShower
+Archer_ArrowShower:
+  Skills:
+  - Totem{ch=0;i=6;d=20;onTick=Archer_ArrowShower_TICK} @Forward{f=4}
+
+Archer_ArrowShower_TICK:
+  Skills:
+  - Sound{s=attack_archer_attack}
+  - RoleHoloModel{mark=ArrowShower;model=skill_arrow_shower;visible=false;duration=5;cy=true}
+  - RoleDamage{a=100+%role_skill_ArrowShower_level_now%*20;sound=attack_archer_hit;type=RangeMultiply} @ENO{r=3}
+
+#衝鋒箭
+#ChargeArrow
+Archer_ChargeArrow:
+  Skills:
+  - projectile{onStart=Archer_ChargeArrow_Start;onTick=Archer_ChargeArrow_Tick;onHit=Archer_ChargeArrow_Hit;v=20;sB=false;i=1;hR=1;vR=1;hnp=true} @target
+  
+Archer_ChargeArrow_Start:
+  Skills:
+  - RoleHoloModel{mark=ChargeArrow;model=skill_arrow;cp=true;cy=true} @origin
+Archer_ChargeArrow_Tick:
+  Skills:
+  - RoleHoloModel{mark=ChargeArrow;model=skill_arrow;duration=15;cp=true;cy=true} @origin
+Archer_ChargeArrow_Hit:
+  Skills:
+  - RoleHoloModel{mark=ChargeArrow;model=skill_arrow;y=1;cp=true;cy=true}
+  - RoleDamage{a=100+%role_skill_ChargeArrow_level_now%*30;sound=attack_archer_hit;type=RangeMultiply}
+  - throw{velocity=10;velocityY=4}
+  - delay 10
+  - RoleHoloModel{mark=ChargeArrow;delete=true;cp=true;cy=true}
+
+
+#二連矢
+#DoubleStrafing
+Archer_DoubleStrafing:
+  Skills:
+  - projectile{onStart=Archer_DoubleStrafing_Start;onTick=Archer_DoubleStrafing_Tick;onHit=Archer_DoubleStrafing_Hit;v=20;sB=false;i=1;hR=1;vR=1;hnp=true} @target
+  
+Archer_DoubleStrafing_Start:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;cp=true;cy=true} @origin
+Archer_DoubleStrafing_Tick:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;duration=15;cp=true;cy=true} @origin
+Archer_DoubleStrafing_Hit:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;y=1;cp=true;cy=true}
+  - RoleDamage{a=100+%role_skill_OwlsEye_level_now%*10+%role_skill_DoubleStrafing_level_now%*40;sound=attack_archer_hit;type=RangeMultiply}
+  - delay 10
+  - RoleDamage{a=100+%role_skill_OwlsEye_level_now%*10+%role_skill_DoubleStrafing_level_now%*40;sound=attack_archer_hit;type=RangeMultiply}
+  - delay 10
+  - RoleHoloModel{mark=ElementArrow;delete=true;cp=true;cy=true}
+
+#元素箭矢
+#ElementArrow
+Archer_ElementArrow:
+  Skills:
+  - projectile{onStart=Archer_ElementArrow_Start;onTick=Archer_ElementArrow_Tick;onHit=Archer_ElementArrow_Hit;v=20;sB=false;i=1;hR=1;vR=1;hnp=true} @target
+  
+Archer_ElementArrow_Start:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;cp=true;cy=true} @origin
+Archer_ElementArrow_Tick:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;duration=15;cp=true;cy=true} @origin
+Archer_ElementArrow_Hit:
+  Skills:
+  - RoleHoloModel{mark=ElementArrow;model=skill_arrow;y=1;cp=true;cy=true}
+  - RoleDamage{a=100+%role_skill_ElementArrow_level_now%*30;sound=attack_archer_hit;type=RangeMultiply}
+  - potion{type=SLOW;duration=100;lvl=2}
+  - delay 10
+  - RoleHoloModel{mark=ElementArrow;delete=true;cp=true;cy=true}
+
+#鶚梟之眼
+#OwlsEye
+Archer_OwlsEye:
+  Skills:
+  - RoleItemDamage{item=BOW:0;amount=%role_skill_OwlsEye_level_now%*5;attribute=GENERIC_ATTACK_DAMAGE;mark=OwlsEye;duration=0} @Self
+  - RoleItemDamage{item=CROSSBOW:0;amount=%role_skill_OwlsEye_level_now%*5;attribute=GENERIC_ATTACK_DAMAGE;mark=OwlsEye;duration=0} @Self
+  - Sound{s=skills_ranger_freezingtrap} @self
+
+#蒼鷹之眼
+#VulturesEye
+Archer_VulturesEye:
+  Skills:
+  - RoleArrowVelocity{amount=%role_skill_VulturesEye_level_now%;duration=0} @Self
+  - Sound{s=skills_ranger_freezingtrap} @self
+
+#Magician (魔法師)
+#------------------------------------------------#
+
+#冰箭術
+#ColdBolt
+Magician_ColdBolt:
+  Skills:
+  - missile{ot=Magician_ColdBolt_TICK;oh=Magician_ColdBolt_HIT;v=10;i=1;hR=1;vR=1;in=0.75;StartYOffset=4}
+
+Magician_ColdBolt_TICK:
+  Skills:
+  - effect:particles{p=reddust;color=#66B3FF;a=1} @origin
+
+Magician_ColdBolt_HIT:
+  Skills:
+  - effect:particles{p=reddust;color=#66B3FF;a=40;hS=1;vS=1}
+  - RoleDamage{a=100+%role_skill_ColdBolt_level_now%*100;sound=attack_magician_hit;type=MagicMultiply}
+  - potion{type=SLOW;duration=60;lvl=2}
+
+#火箭術
+#FireBolt
+Magician_FireBolt:
+  Skills:
+  - missile{ot=Magician_FireBolt_TICK;oh=Magician_FireBolt_HIT;v=15;i=1;hR=1;vR=1;in=0.75;StartYOffset=4}
+
+Magician_FireBolt_TICK:
+  Skills:
+  - effect:particles{p=flame;a=2} @origin
+
+Magician_FireBolt_HIT:
+  Skills:
+  - effect:particles{p=lava;a=50;hS=1;vS=1}
+  - RoleDamage{a=500+%role_skill_FireBolt_level_now%*200;sound=attack_magician_hit;type=MagicMultiply}
+
+#冰凍術
+#FrostDiver
+Magician_FrostDiver:
+  Skills:
+  - missile{ot=Magician_FrostDiver_TICK;oh=Magician_FrostDiver_HIT;v=10;i=1;hR=1;vR=1;in=0.75;sfo=2;StartYOffset=1.5}
+
+Magician_FrostDiver_TICK:
+  Skills:
+  - effect:particles{p=reddust;color=#66B3FF;a=1} @origin
+
+Magician_FrostDiver_HIT:
+  Skills:
+  - effect:particles{p=reddust;color=#66B3FF;a=50;hS=1;vS=1}
+  - RoleDamage{a=100+%role_skill_FrostDiver_level_now%*30;sound=attack_magician_hit;type=MagicMultiply}
+  - RoleModel{m=skill_frozen}
+  - setAI{ai=false}
+  - delay 60
+  - setAI{ai=true}
+  - RoleModel{m=};
+
+
+#禪心
+#IncreaseSpiritualPower
+Magician_IncreaseSpiritualPower:
+  Skills:
+  - RoleMana{a=%role_skill_IncreaseSpiritualPower_level_now%*10;sound=skills_ab_heal_effect} @self
+
+#雷擊術
+#LightningBolt
+Magician_LightningBolt:
+  Skills:
+  - effect:lightning{l=true;r=13} @target
+  - RoleDamage{a=500+%role_skill_LightningBolt_level_now%*250;sound=skills_soc_thunderstorm;type=MagicMultiply} @target
+
+#火焰之環
+#RingOfFlame
+Magician_RingOfFlame:
+  Skills:
+  - totem{ch=0;i=20;d=150;onTick=Magician_RingOfFlame_TICK} @self
+
+Magician_RingOfFlame_TICK:
+  Skills:
+  - effect:particles{p=flame;a=200;hS=5;vS=1;vd=1} @origin
+  - RoleDamage{a=100+%role_skill_RingOfFlame_level_now%*20;sound=skills_soc_firehit;type=MagicMultiply} @ENO{r=6}
+
+
+#聖靈召喚
+#SoulStrike
+Magician_SoulStrike:
+  Skills:
+  - missile{ot=Magician_SoulStrike_TICK;oh=Magician_SoulStrike_HIT;v=20;i=1;hR=1;vR=1;in=0.75;hn=1;sfo=2;StartYOffset=1.5}
+
+Magician_SoulStrike_TICK:
+  Skills:
+  - effect:particles{p=reddust;color=#921AFF;a=5} @origin
+
+Magician_SoulStrike_HIT:
+  Skills:
+  - effect:particles{p=reddust;color=#921AFF;a=50;hS=1;vS=1}
+  - RoleDamage{a=%role_skill_SoulStrike_level_now%*45;sound=attack_magician_hit;type=MagicMultiply}
+
+#Swordman (劍士)
+#------------------------------------------------#
+
+#狂擊
+#Bash
+Swordman_Bash:
+  Skills:
+  - RoleDamage{a=100+%role_skill_Bash_level_now%*90;sound=attack_acolyte_hit;type=MeleeMultiply} @target
+  - RoleHoloText{mark=Bash;text=䈀;duration=10;y=-1} @target
+  - RoleStun{sound=skills_ef_steal;probability=30;duration=60} @target
+
+#霸體
+#Endure
+Swordman_Endure:
+  Skills:
+  - RoleHoloText{mark=Endure;text=䇩;y=1.5;duration=20} @self
+  - RoleAttribute{name=Endure1;attribute=GENERIC_KNOCKBACK_RESISTANCE;a=1;duration=600} @self
+  - RoleAttribute{name=Endure2;attribute=GENERIC_ARMOR;a=%role_skill_Endure_level_now%*2;duration=600} @self
+  - Sound{s=skills_rk_endure} @self
+
+#快速回復
+#IncreaseRecuperativePower
+Swordman_IncreaseRecuperativePower:
+  Skills:
+  - RoleHeal{a=%role_skill_IncreaseRecuperativePower_level_now%*20;sound=skills_ab_heal_effect} @self
+
+#怒爆
+#MagnumBreak
+Swordman_MagnumBreak:
+  Skills:
+  - RoleDamage{a=100+%role_skill_MagnumBreak_level_now%*50;sound=attack_acolyte_hit;type=MeleeMultiply} @ENO{r=3}
+  - throw{velocity=5;velocityY=4} @ENO{r=3}
+  - effect:explosion @self
+
+#挑釁
+#Provoke
+Swordman_Provoke:
+  Skills:
+  - RoleThreat{a=%role_skill_Provoke_level_now%*100} @ENO{r=10}
+  - RoleAttribute{name=Provoke;attribute=GENERIC_ARMOR;a=-10;duration=200} @ENO{r=10}
+  - Sound{s=skills_rk_swordmanprovoke} @ENO{r=10}
+  - RoleHoloText{mark=Provoke;text=䇵;y=1.5;duration=20} @ENO{r=10}
+  - delay 3
+  - RoleHoloText{mark=Provoke;text=䇵;y=2} @ENO{r=10}
+  - delay 3
+  - Sound{s=skills_rk_swordmanprovoke} @ENO{r=10}
+  - RoleHoloText{mark=Provoke;text=䇵;y=1.5} @ENO{r=10}
+  - delay 3
+  - RoleHoloText{mark=Provoke;text=䇵;y=2} @ENO{r=10}
+  - delay 3
+  - RoleHoloText{mark=Provoke;text=䇵;y=1.5} @ENO{r=10}
+
+#劍術修煉
+#SwordMastery
+Swordman_SwordMastery:
+  Skills:
+  - RoleItemDamage{item=WOODEN_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - RoleItemDamage{item=STONE_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - RoleItemDamage{item=IRON_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - RoleItemDamage{item=GOLDEN_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - RoleItemDamage{item=DIAMOND_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - RoleItemDamage{item=NETHERITE_SWORD:0;amount=%role_skill_SwordMastery_level_now% * 10;mark=SwordMastery;duration=0} @Self
+  - Sound{s=skills_rk_twohandquicken} @Self
+
+
+

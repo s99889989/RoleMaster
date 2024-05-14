@@ -1,0 +1,21 @@
+MaxLevel: 10
+Icon: 'minecraft:class/archer/skill/element_arrow.png'
+DisplayName: '§e元素箭矢'
+Directions:
+- '§6射出箭矢造成{custom_skill_ElementArrow_value}%遠距離傷害，並'
+- '§6減緩目標移動速度5秒。'
+- '§a施放技能時必須裝備弓類武器。'
+
+PassiveSkill: true
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 2
+CastTime: 0
+CastDelay: 0
+NeedWeapons:
+- BOW:0
+- CROSSBOW:0
+Mana: 0
+Value: '100+{custom_skill_ElementArrow_level_now}*30'
+Action:
+- Mythicskill[skill=Archer_ElementArrow]

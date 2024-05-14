@@ -1,0 +1,17 @@
+MaxLevel: 10
+Icon: 'minecraft:class/archer/skill/vultures_eye.png'
+DisplayName: '§e蒼鷹之眼'
+Directions:
+- '§6提升箭矢速度{custom_skill_VulturesEye_value}點。'
+
+PassiveSkill: true
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 0
+CastTime: 0
+CastDelay: 0
+Passive: true
+Mana: 0
+Value: '{custom_skill_VulturesEye_level_now}'
+Action:
+- Mythicskill[skill=Archer_VulturesEye]

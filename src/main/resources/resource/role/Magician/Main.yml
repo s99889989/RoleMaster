@@ -1,0 +1,8 @@
+DisplayName: '魔法師'
+Icon: 'minecraft:class/magician/icon.png'
+LevelMax:
+  Base: 99
+  Skill: 50
+State:
+  Mana: '100+{custom_role_level_now}*15'
+  ManaRegeneration: '5+{custom_role_level_now}*5'

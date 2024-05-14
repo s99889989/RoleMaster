@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/magnum_break.png'
+DisplayName: '§e怒爆'
+Directions:
+- '§6擊退自身周圍所有敵對目標並造成物'
+- '§6理攻擊{custom_skill_MagnumBreak_value}%火屬性物理傷害。'
+
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 4
+CastTime: 0
+CastDelay: 0
+Mana: 1 #10
+Value: '100+{custom_skill_MagnumBreak_level_now}*50'
+Action:
+- Mythicskill[skill=Swordman_MagnumBreak]

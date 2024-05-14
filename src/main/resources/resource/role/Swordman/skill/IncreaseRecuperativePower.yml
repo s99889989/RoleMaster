@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/increase_recuperative_power.png'
+DisplayName: '§e快速回復'
+Directions:
+- '§6恢復{custom_skill_IncreaseRecuperativePower_value}點HP。'
+
+PassiveSkill: true
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 0
+CastTime: 0
+CastDelay: 0
+Mana: 0
+Value: '{custom_skill_IncreaseRecuperativePower_level_now}*20'
+Action:
+- Mythicskill[skill=Swordman_IncreaseRecuperativePower]

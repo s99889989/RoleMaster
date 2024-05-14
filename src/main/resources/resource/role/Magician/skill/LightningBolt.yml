@@ -1,0 +1,15 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/lightning_bolt.png'
+DisplayName: '§e雷擊術'
+Directions:
+- '§6對敵方單體造成魔法攻擊{custom_skill_LightningBolt_value}%風屬'
+- '§6性魔法傷害'
+
+NeedTarget: true
+TargetDistance: 12
+CoolDown: 3
+CastTime: 1
+Mana: '{custom_skill_LightningBolt_level_now}*5'
+Value: '500+{custom_skill_LightningBolt_level_now}*250'
+Action:
+- Mythicskill[skill=Magician_LightningBolt]

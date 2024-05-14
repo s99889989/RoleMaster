@@ -1,0 +1,795 @@
+Gui:
+  Type: Inventory
+  Position: '5'
+  X: '0'
+  Y: '0'
+  Width: '300'
+  Height: '200'
+  Image: gui/background/background_2.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+  Mask: 'true'
+  Tooltip: ''
+ContentList:
+  ClassContainer:
+    Type: Container
+    Position: 1
+    X: 5
+    Y: 5
+    Width: 130
+    Height: 43
+    ActualWidth: 130
+    ActualHeight: 43
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: '1'
+    Use: 'true'
+    ContentList:
+      Icon:
+        Type: Image
+        Position: '1'
+        X: 10
+        Y: 10
+        Width: '20'
+        Height: '20'
+        Image: '%role_icon%'
+        Color: '#FFFFFF'
+        Transparent: '255'
+      Text:
+        Type: Text
+        Position: 1
+        X: 40
+        Y: 2
+        Text:
+        - '職業: %role_displayname%'
+        - '等級: %role_base_level_now%/%role_base_level_max%'
+        - '經驗: %role_base_exp_now%/%role_base_exp_max%'
+        - '點數: %role_base_point%'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'
+  AttributeList:
+    Type: Container
+    Position: 7
+    X: 5
+    Y: -5
+    Width: '130'
+    Height: 143
+    ActualWidth: 130
+    ActualHeight: 143
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: 2
+    Use: 'true'
+    ContentList:
+      StrContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 5
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Str'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Str_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Str
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Str_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+      AgiContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 28
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Agi'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Agi_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Agi
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Agi_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+      VitContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 51
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Vit'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Vit_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Vit
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Vit_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+      IntContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 74
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Int'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Int_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Int
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Int_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+      DexContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 97
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Dex'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Dex_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Dex
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Dex_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+      LukContainer:
+        Type: Container
+        Position: '1'
+        X: 5
+        Y: 120
+        Width: '120'
+        Height: 18
+        ActualWidth: '120'
+        ActualHeight: 18
+        Image: gui/chat/input_message.png
+        Color: '#ffffff'
+        Transparent: '255'
+        ScrollBackgroundColor: '#c0c0c0'
+        ScrollBackgroundTransparent: '255'
+        ScrollColor: '#c0c0c0'
+        ScrollTransparent: '255'
+        ScrollSidebarColor: '#c0c0c0'
+        ScrollSidebarTransparent: '100'
+        ScrollX: '0'
+        ScrollY: '0'
+        OverflowXHide: 'true'
+        OverflowYHide: 'true'
+        ScrollXDisplay: '1'
+        ScrollYDisplay: '1'
+        Use: 'true'
+        ContentList:
+          AttributeName:
+            Type: Text
+            Position: 4
+            X: 5
+            Y: 1
+            Text:
+            - 'Luk'
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          NowPointBG:
+            Type: Image
+            Position: 4
+            X: 28
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NowPoint:
+            Type: Text
+            Position: 4
+            X: 32
+            Y: 1
+            Text:
+            - '%role_base_attr_Luk_now%'
+            TextColor: '#3E87B1'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+          AttributeUpButton:
+            Type: Button
+            Position: 4
+            X: 61
+            Y: 0
+            Width: 15
+            Height: 15
+            Image: gui/icon/add.png
+            Color: '#FFFFFF'
+            Transparent: '255'
+            HoverImage: gui/icon/add.png
+            HoverColor: '#0066CC'
+            HoverTransparent: '255'
+            ClickImage: gui/icon/add.png
+            ClickColor: '#0066CC'
+            ClickTransparent: '255'
+            Text: ''
+            TextColor: '#FFFFFF'
+            TextSize: '1'
+            Use: 'true'
+            Attribute: Luk
+          NeedPointBG:
+            Type: Image
+            Position: 4
+            X: 90
+            Y: 0
+            Width: 20
+            Height: 18
+            Image: ''
+            Color: '#CCC1C1'
+            Transparent: '255'
+          NeedPoint:
+            Type: Text
+            Position: 4
+            X: 95
+            Y: 1
+            Text:
+            - '%role_base_attr_Luk_cost%'
+            TextColor: '#000000'
+            TextSize: '1'
+            Space: '10'
+            Width: '0'
+  
+  ToMenuContainer:
+    Type: Container
+    Position: '3'
+    X: -5
+    Y: 5
+    Width: '155'
+    Height: 18
+    ActualWidth: '155'
+    ActualHeight: 18
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: 0
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    Use: 'true'
+    ContentList:
+      ButtonAttribute:
+        Type: Button
+        Position: 4
+        X: 0
+        Y: 0
+        Width: 30
+        Height: 18
+        Image: gui/button/button_default.png
+        Color: '#FFFFFF'
+        Transparent: '255'
+        HoverImage: gui/button/button_hover.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: '255'
+        ClickImage: gui/button/button_hover.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: '255'
+        Text: '屬性'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+      ButtonSkill:
+        Type: Button
+        Position: 4
+        X: 38
+        Y: 0
+        Width: 30
+        Height: 18
+        Image: gui/button/button_default.png
+        Color: '#FFFFFF'
+        Transparent: '255'
+        HoverImage: gui/button/button_hover.png
+        HoverColor: '#FFFFFF'
+        HoverTransparent: '255'
+        ClickImage: gui/button/button_hover.png
+        ClickColor: '#FFFFFF'
+        ClickTransparent: '255'
+        Text: '技能'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Use: 'true'
+  StateContainer:
+    Type: Container
+    Position: '3'
+    X: -5
+    Y: 28
+    Width: '155'
+    Height: 167
+    ActualWidth: '155'
+    ActualHeight: 167
+    Image: gui/container/container_1.png
+    Color: '#ffffff'
+    Transparent: '255'
+    ScrollBackgroundColor: '#c0c0c0'
+    ScrollBackgroundTransparent: '255'
+    ScrollColor: '#c0c0c0'
+    ScrollTransparent: '255'
+    ScrollSidebarColor: '#c0c0c0'
+    ScrollSidebarTransparent: '100'
+    ScrollX: '0'
+    ScrollY: '0'
+    OverflowXHide: 'true'
+    OverflowYHide: 'true'
+    ScrollXDisplay: '1'
+    ScrollYDisplay: '1'
+    Use: 'true'
+    ContentList:
+      Condition:
+        Type: Text
+        Position: '1'
+        X: 4
+        Y: 5
+        Text:
+        - '血量: %player_health_rounded%/%player_max_health_rounded%'
+        - '魔量: %role_mana_now%/%role_mana_max%'
+        - '回魔速度: %role_mana_reg%/10秒'
+        TextColor: '#FFFFFF'
+        TextSize: '1'
+        Space: '10'
+        Width: '0'

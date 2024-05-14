@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/ring_of_flame.png'
+DisplayName: '§e火焰之環'
+Directions:
+- '§6築起圓形火牆來阻擋敵方單位前進，'
+- '§6使試圖穿過的敵方單位受到魔法攻擊'
+- '§6{custom_skill_RingOfFlame_value}%火屬性魔法傷害，持續15秒'
+#
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 2
+CastTime: 1
+Mana: '{custom_skill_RingOfFlame_level_now}*6'
+Value: '100+{custom_skill_RingOfFlame_level_now}*20'
+Action:
+- Mythicskill[skill=Magician_RingOfFlame]

@@ -1,0 +1,17 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/sword_mastery.png'
+DisplayName: '§e劍術修煉'
+Directions:
+- '§6提升劍類武器傷害{custom_skill_SwordMastery_value}點。'
+
+PassiveSkill: true
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 0
+CastTime: 0
+CastDelay: 0
+Passive: true
+Mana: 0
+Value: '{custom_skill_SwordMastery_level_now}*2'
+Action:
+- Mythicskill[skill=Swordman_SwordMastery]

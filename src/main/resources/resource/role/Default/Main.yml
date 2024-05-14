@@ -1,0 +1,9 @@
+DisplayName: '無職者'
+Icon: 'minecraft:class/novice/icon.png'
+LevelMax:
+  Base: 99
+  Skill: 20
+State:
+  Mana: '50+{custom_role_level_now}*5'
+  ManaRegeneration: '1+{custom_role_level_now}*1'
+

@@ -1,0 +1,8 @@
+DisplayName: '劍士'
+Icon: 'minecraft:class/swordman/icon.png'
+LevelMax:
+  Base: 99
+  Skill: 50
+State:
+  Mana: '100+{custom_role_level_now}*10'
+  ManaRegeneration: '5+{custom_role_level_now}*2'

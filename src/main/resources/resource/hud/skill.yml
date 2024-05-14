@@ -1,0 +1,297 @@
+
+CastBG:
+  Type: 'Image'
+  Position: 7
+  X: 25
+  Y: -88
+  Width: 5
+  Height: 80
+  Color: '#FFFFFF'
+  Transparent: 100
+  Image: ''
+
+Cast:
+  Type: 'Image'
+  Position: 7
+  X: 25
+  Y: -88
+  Width: 5
+  Height: 80
+  Color: '#D26900'
+  Transparent: 0
+  Image: ''
+
+ManaBG:
+  Type: 'Image'
+  Position: 1
+  X: 50
+  Y: 30
+  Width: 200
+  Height: 5
+  Image: 'hud/bar_air.png'
+
+Mana:
+  Type: 'Image'
+  Position: 1
+  X: 50
+  Y: 30
+  Width: '{custom_role_mana_now}/{custom_role_mana_max}*200'
+  Height: 5
+  Image: 'hud/bar_blue.png'
+
+ManaText:
+  Type: 'Text'
+  Position: 1
+  X: 50
+  Y: 25
+  Text:
+    - '{custom_role_mana_now}/{custom_role_mana_max}'
+  TextSize: 1
+  TextColor: '#FFFFFF'
+
+Select_1:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -155
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+Select_2:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -135
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+Select_3:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -115
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+Select_4:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -95
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+Select_5:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -75
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: '255'
+Select_6:
+  Type: Image
+  Position: 7
+  X: 5
+  Y: -55
+  Width: 15
+  Height: 15
+  Image: gui/slot/slot5.png
+  Color: '#FFFFFF'
+  Transparent: 255
+Bind_1:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -156
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+Bind_2:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -136
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+Bind_3:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -116
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+Bind_4:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -96
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+Bind_5:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -76
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+Bind_6:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -56
+  Width: 13
+  Height: 13
+  Image: 'minecraft:class/novice/skill/first_aid.png'
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_1:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -156
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_2:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -136
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_3:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -116
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_4:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -96
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_5:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -76
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+CD_6:
+  Type: Image
+  Position: 7
+  X: 6
+  Y: -56
+  Width: 13
+  Height: 13
+  Image: ''
+  Color: '#FFFFFF'
+  Transparent: 0
+Text_1:
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -157
+  Text:
+  - Z
+  TextColor: '#000000'
+  TextSize: '1'
+  Space: '10'
+  Width: '0'
+Text_2:
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -137
+  Text:
+  - X
+  TextColor: '#000000'
+  TextSize: '1'
+  Space: '10'
+  Width: '0'
+Text_3:
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -117
+  Text:
+  - C
+  TextColor: '#000000'
+  TextSize: 1
+  Space: '10'
+  Width: '0'
+Text_4:
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -97
+  Text:
+  - V
+  TextColor: '#000000'
+  TextSize: '1'
+  Space: '10'
+  Width: '0'
+Text_5:
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -77
+  Text:
+  - B
+  TextColor: '#000000'
+  TextSize: '1'
+  Space: '10'
+  Width: '0'
+Text_6: #+1
+  Type: Text
+  Position: 7
+  X: 10
+  Y: -57
+  Text:
+  - N
+  TextColor: '#000000'
+  TextSize: '1'
+  Space: '10'
+  Width: '0'

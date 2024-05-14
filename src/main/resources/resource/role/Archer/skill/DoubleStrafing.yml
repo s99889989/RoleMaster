@@ -1,0 +1,20 @@
+MaxLevel: 10
+Icon: 'minecraft:class/archer/skill/double_strafing.png'
+DisplayName: '§e二連矢'
+Directions:
+- '§6同時射出2箭，對敵方造成{custom_skill_DoubleStrafing_value}%遠'
+- '§6距離傷害。'
+- '§a施放技能時必須裝備弓類武器。'
+
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 1
+CastTime: 0
+CastDelay: 0
+NeedWeapons:
+- BOW:0
+- CROSSBOW:0
+Mana: 1
+Value: '100+{custom_skill_DoubleStrafing_level_now}*40'
+Action:
+- Mythicskill[skill=Archer_DoubleStrafing]

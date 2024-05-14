@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/swordman/skill/endure.png'
+DisplayName: '§e霸體'
+Directions:
+- '§6使自身在受擊時不會被擊退，並提升'
+- '§6{custom_skill_Endure_value}點防禦，持續30秒。'
+
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 2
+CastTime: 0
+CastDelay: 0
+Mana: 1
+Value: '{custom_skill_Endure_level_now}*2'
+Action:
+- Mythicskill[skill=Swordman_Endure]

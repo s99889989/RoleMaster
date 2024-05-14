@@ -1,0 +1,20 @@
+MaxLevel: 10
+Icon: 'minecraft:class/archer/skill/arrow_shower.png'
+DisplayName: '§e箭雨'
+Directions:
+- '§6朝指定範圍射出4波箭矢，每次造成'
+- '§6{custom_skill_ArrowShower_value}%遠距離傷害。'
+- '§a施放技能時必須裝備弓類武器。'
+
+NeedTarget: false
+TargetDistance: 5
+CoolDown: 1
+CastTime: 1
+CastDelay: 0
+NeedWeapons:
+- BOW:0
+- CROSSBOW:0
+Mana: 1
+Value: '100+{custom_skill_ArrowShower_level_now}*20'
+Action:
+- Mythicskill[skill=Archer_ArrowShower]

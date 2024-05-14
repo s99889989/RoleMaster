@@ -1,0 +1,23 @@
+#技能等級上升
+#Skill level increases
+LevelSkillUpEvent:
+- Mythicskill[skill=LevelSkillUp]
+
+#基礎等級上升
+#Base level increases
+LevelBaseUpEvent:
+- Mythicskill[skill=LevelSkillUp]
+
+#技能詠唱 (開始)
+#Skill chant (Start)
+SkillChantStartEvent:
+- Mythicskill[skill=SkillChantStart]
+
+SkillChantTickEvent:
+- Mythicskill[skill=SkillChantTick]
+
+#技能詠唱 (結束)
+#Skill chant (End)
+SkillChantEndEvent:
+- Mythicskill[skill=SkillChantEnd]
+

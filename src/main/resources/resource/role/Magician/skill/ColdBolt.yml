@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/cold_bolt.png'
+DisplayName: '§e冰箭術'
+Directions:
+- '§6從天空中降落冰箭攻擊敵方單體，使'
+- '§6其受到{custom_skill_ColdBolt_value}%水屬性魔法傷害。'
+- '§6並減緩目標移動速度3秒。'
+
+NeedTarget: true
+TargetDistance: 12
+CoolDown: 2
+CastTime: 1
+Mana: '{custom_skill_ColdBolt_level_now}*3'
+Value: '100+{custom_skill_ColdBolt_level_now}*100'
+Action:
+- Mythicskill[skill=Magician_ColdBolt]

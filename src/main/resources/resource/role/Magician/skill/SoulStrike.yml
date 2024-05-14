@@ -1,0 +1,16 @@
+MaxLevel: 10
+Icon: 'minecraft:class/magician/skill/soul_strike.png'
+DisplayName: '§e聖靈召喚'
+Directions:
+- '§6召喚聖靈進行攻擊，對敵方單體造成'
+- '§6魔法攻擊{custom_skill_SoulStrike_value}%無屬性魔法傷害'
+
+
+NeedTarget: true
+TargetDistance: 12
+CoolDown: 2
+CastTime: 1
+Mana: '{custom_skill_SoulStrike_level_now}*3'
+Value: '100+{custom_skill_SoulStrike_level_now}*150'
+Action:
+- Mythicskill[skill=Magician_SoulStrike]

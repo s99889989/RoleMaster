@@ -1,0 +1,20 @@
+MaxLevel: 5
+Icon: 'minecraft:class/archer/skill/charge_arrow.png'
+DisplayName: '§e衝鋒箭'
+Directions:
+- '§6發射強力箭矢，對敵方單體造成'
+- '§6{custom_skill_ChargeArrow_value}%遠距傷害，並擊退一段距離。'
+- '§a施放技能時必須裝備弓類武器。'
+
+NeedTarget: true
+TargetDistance: 16
+CoolDown: 1
+CastTime: 0
+CastDelay: 0
+NeedWeapons:
+- BOW:0
+- CROSSBOW:0
+Mana: 5
+Value: '100+{custom_skill_ChargeArrow_level_now}*30'
+Action:
+- Mythicskill[skill=Archer_ChargeArrow]

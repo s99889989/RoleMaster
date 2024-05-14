@@ -1,0 +1,17 @@
+MaxLevel: 10
+Icon: 'minecraft:class/archer/skill/owls_eye.png'
+DisplayName: '§e鶚梟之眼'
+Directions:
+- '§6提升弓類武器傷害{custom_skill_OwlsEye_value}點。'
+
+PassiveSkill: true
+NeedTarget: false
+TargetDistance: 0
+CoolDown: 0
+CastTime: 0
+CastDelay: 0
+Passive: true
+Mana: 0
+Value: '{custom_skill_OwlsEye_level_now}*10'
+Action:
+- Mythicskill[skill=Archer_OwlsEye]
