@@ -60,7 +60,7 @@ public class RoleStunMechanic implements ITargetedEntitySkill {
             }
             int duration  = RoleSkillController.getSkillValue(casterEntity, targetEntity, this.duration);
             setStun(targetEntity);
-            SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+            SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                 removeStun(targetEntity);
             }, duration);
         }

@@ -114,7 +114,7 @@ public class RoleAttributeGUI extends UnrealCoreGUI {
 
     public void placeholderChange(){
 
-        runTask = SchedulerFunction.runTimer(RoleMaster.roleMaster,()->{
+        runTask = SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(),()->{
             Map<String, String> customValueMap = new HashMap<>();
             if(Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
                 customValue.forEach((content, contentChange) -> {

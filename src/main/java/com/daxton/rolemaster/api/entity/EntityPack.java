@@ -139,7 +139,7 @@ public class EntityPack {
     public static void setSwim(LivingEntity livingEntity, String text) {
         int intValue = Integer.parseInt(text.substring(2), 16);
         byte byteValue = (byte) intValue;
-        RoleMaster.sendLogger("設置狀態");
+        RoleMaster.unrealCorePlugin.sendLogger("設置狀態");
         PacketContainer packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.ENTITY_METADATA);
         packet.getIntegers().write(0, livingEntity.getEntityId());
         WrappedDataWatcher metadata = new WrappedDataWatcher();

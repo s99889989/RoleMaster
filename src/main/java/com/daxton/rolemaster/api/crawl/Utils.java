@@ -11,7 +11,7 @@ public class Utils {
     public static BlockData BARRIER_BLOCK_DATA;
     public static void revertBlockPacket(Player player, Block block) {
         player.sendBlockChange(block.getLocation(), block.getBlockData());
-        Bukkit.getScheduler().runTask(RoleMaster.roleMaster, () -> {
+        Bukkit.getScheduler().runTask(RoleMaster.unrealCorePlugin.getJavaPlugin(), () -> {
             block.getState().update();
         });
     }

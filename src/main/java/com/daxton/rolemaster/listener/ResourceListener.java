@@ -2,7 +2,6 @@ package com.daxton.rolemaster.listener;
 
 
 import com.daxton.rolemaster.controller.RoleHUDController;
-import com.daxton.unrealcore.communication.event.PlayerConnectionSuccessfulEvent;
 
 import com.daxton.unrealresource.event.UnrealResourceLoadFinishEvent;
 import org.bukkit.entity.Player;

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.daxton'
-version = '1.0'
+version = '2.0'
 
 repositories {
     mavenCentral()
@@ -75,16 +75,13 @@ task copyRelease(type: Copy) {
 
 task copyServer(type: Copy) {
     from jar
-    into 'D:/PluginServer/Paper-1.20.4/plugins'
+    into 'F:/Minecraft/Server/PluginServer/Paper/Paper-1.20.4/plugins'
 }
-task copyServer16(type: Copy) {
-    from jar
-    into 'D:/PluginServer/Paper-1.16.5/plugins'
-}
+
 task multiIntoCopy {
     finalizedBy copyRelease
     finalizedBy copyServer
-    finalizedBy copyServer16
+
 }
 
 build.finalizedBy multiIntoCopy

@@ -80,7 +80,7 @@ public class SkillBeen {
         this.interval = YmlFileUtil.getString(skillConfig, "Interval", "1");
         this.actionList = YmlFileUtil.getStringList(skillConfig, "Action", "");
         this.passive = YmlFileUtil.getBoolean(skillConfig, "Passive", false);
-        this.needWeapons = YmlFileUtil.getStringList(skillConfig, "NeedWeapons", "");
+        this.needWeapons = YmlFileUtil.getStringList(skillConfig, "NeedWeapons");
 
     }
 

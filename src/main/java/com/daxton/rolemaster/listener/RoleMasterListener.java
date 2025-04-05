@@ -1,5 +1,6 @@
 package com.daxton.rolemaster.listener;
 
+import com.daxton.rolemaster.RoleMaster;
 import com.daxton.rolemaster.application.Convert;
 import com.daxton.rolemaster.been.RolePlayer;
 import com.daxton.rolemaster.controller.*;
@@ -102,6 +103,7 @@ public class RoleMasterListener implements Listener {
         if(!inputNow){
             if(keyAction == 1){
                 if(keyName.equals("Z") || keyName.equals("X") || keyName.equals("C") || keyName.equals("V") || keyName.equals("B") || keyName.equals("N")){
+
                     RoleSkillController.onSkill(player, keyName);
                 }
 

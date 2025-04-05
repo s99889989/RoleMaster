@@ -24,14 +24,14 @@ public class RoleMasterController {
     //讀取
     public static void load(){
         //建立設定檔
-        PluginUtil.CreateConfig(RoleMaster.roleMaster);
+        createConfig();
 
         getRoleNameList().forEach(roleName -> {
             RoleBeen roleBeen = new RoleBeen(roleName);
             roleBeenMap.put(roleName, roleBeen);
         });
 
-        PluginUtil.resourceCopy2(RoleMaster.roleMaster, "MythicMobs/Skills/RoleMaster.yml", "plugins/MythicMobs/Skills/RoleMaster.yml", false);
+        PluginUtil.resourceCopy2(RoleMaster.unrealCorePlugin.getJavaPlugin(), "MythicMobs/Skills/RoleMaster.yml", "plugins/MythicMobs/Skills/RoleMaster.yml", false);
 
 //        RoleMaster.sendLogger("路徑: "+RoleMaster.getResourceFolder());
 
@@ -105,7 +105,7 @@ public class RoleMasterController {
 
         save(fileConfiguration, "data/"+uuidString+".yml");
 
-        SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+        SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
             RolePlayerController.setDefaultValue(player);
         }, 20);
 
@@ -113,7 +113,7 @@ public class RoleMasterController {
 
     //獲取所有角色名稱
     public static List<String> getRoleNameList(){
-        File file = new File(RoleMaster.getResourceFolder()+"role");
+        File file = new File(RoleMaster.unrealCorePlugin.getResourceFolder()+"role");
 
         List<String> stringList = new ArrayList<>();
         if(file.exists() && file.list() != null){
@@ -125,7 +125,7 @@ public class RoleMasterController {
 
     //獲取所有角色技能名稱
     public static List<String> getSkillList(String roleName){
-        File file = new File(RoleMaster.getResourceFolder()+"role/"+roleName+"/skill");
+        File file = new File(RoleMaster.unrealCorePlugin.getResourceFolder()+"role/"+roleName+"/skill");
 
         List<String> stringList = new ArrayList<>();
         if(file.exists() && file.list() != null){
@@ -141,8 +141,14 @@ public class RoleMasterController {
     }
 
     //存檔
+    public static void save(Player player, FileConfiguration fileConfiguration){
+        String uuidString = player.getUniqueId().toString();
+        save(fileConfiguration, "data/"+uuidString+".yml");
+    }
+
+    //存檔
     public static void save(FileConfiguration fileConfiguration, String path){
-        File file = new File(RoleMaster.getResourceFolder(), path);
+        File file = new File(RoleMaster.unrealCorePlugin.getResourceFolder(), path);
         try {
             fileConfiguration.save(file);
         } catch (IOException e) {
@@ -151,13 +157,15 @@ public class RoleMasterController {
     }
     //從插件預設路徑獲取YML檔案
     public static List<FileConfiguration> getYmlFileList(String path){
-        return YmlFileUtil.findFileConfiguration(RoleMaster.getResourceFolder()+path);
+        return YmlFileUtil.findFileConfiguration(RoleMaster.unrealCorePlugin.getResourceFolder()+path);
 
     }
     //從插件預設路徑獲取YML檔案
     public static FileConfiguration getYmlFile(String path){
 
-        File file = new File(RoleMaster.getResourceFolder(), path);
+        File file = new File(RoleMaster.unrealCorePlugin.getResourceFolder(), path);
+
+
         if(!file.exists()){
             try {
                 file.createNewFile();
@@ -165,7 +173,58 @@ public class RoleMasterController {
                 throw new RuntimeException(e);
             }
         }
+
         return YamlConfiguration.loadConfiguration(file);
+    }
+
+    //建立設定檔
+    public static void createConfig(){
+
+        File file = new File(RoleMaster.unrealCorePlugin.getResourceFolder(), "data");
+        if(!file.exists()){
+            file.mkdir();
+        }
+        //Command
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "common/attributes.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "common/base.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "common/event.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "common/level.yml", false);
+        //GUI
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "gui/RoleAttributeGUI.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "gui/RoleSkillGUI.yml", false);
+        //HUD
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "hud/skill.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "hud/state.yml", false);
+        //Role Archer
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/Anklesnare.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/ArrowShower.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/ChargeArrow.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/DoubleStrafing.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/ElementArrow.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/OwlsEye.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/skill/VulturesEye.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Archer/Main.yml", false);
+        //Role Default
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Default/skill/FirstAid.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Default/skill/Slam.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Default/Main.yml", false);
+        //Role Magician
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/ColdBolt.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/FireBolt.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/FrostDiver.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/IncreaseSpiritualPower.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/LightningBolt.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/RingOfFlame.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/skill/SoulStrike.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Magician/Main.yml", false);
+        //Role SwordMan
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/Bash.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/Endure.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/IncreaseRecuperativePower.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/MagnumBreak.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/Provoke.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/skill/SwordMastery.yml", false);
+        PluginUtil.resourceCopy(RoleMaster.unrealCorePlugin.getJavaPlugin(), "role/Swordman/Main.yml", false);
     }
 
 }

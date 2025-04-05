@@ -58,7 +58,7 @@ public class RoleAttributeMechanic implements ITargetedEntitySkill {
                 if (duration <= 0) {
                     duration = 20;
                 }
-                SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+                SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                     attributeInstance.removeModifier(modifier);
                 }, duration);
             }

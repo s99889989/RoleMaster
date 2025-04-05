@@ -4,6 +4,8 @@ import com.daxton.rolemaster.RoleMaster;
 import com.daxton.rolemaster.controller.RoleSkillController;
 import com.daxton.unrealcore.application.UnrealCoreAPI;
 import com.daxton.unrealcore.application.method.SchedulerFunction;
+import com.daxton.unrealcore.been.entity.gecko.GeckoEntityModelBeen;
+import com.daxton.unrealcore.been.entity.gecko.GeckoModelRemoveBeen;
 import io.lumine.mythic.api.adapters.AbstractEntity;
 import io.lumine.mythic.api.config.MythicLineConfig;
 import io.lumine.mythic.api.skills.ITargetedEntitySkill;
@@ -44,19 +46,22 @@ public class RoleModelMechanic implements ITargetedEntitySkill {
 
 
         if(model_id.isEmpty()){
-            UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(uuidString, this.mark);
+            GeckoModelRemoveBeen geckoModelRemoveBeen = new GeckoModelRemoveBeen(uuidString, this.mark);
+            UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(geckoModelRemoveBeen);
             runTaskMap.remove(uuidString);
         }else {
             if(runTaskMap.containsKey(uuidString)){
                 runTaskMap.get(uuidString).cancel();
                 runTaskMap.remove(uuidString);
             }
-            UnrealCoreAPI.inst().getEntityHelper().setEntityModel(uuidString, this.mark, model_id);
+            GeckoEntityModelBeen geckoEntityModelBeen = new GeckoEntityModelBeen(uuidString, this.mark, this.model_id);
+            UnrealCoreAPI.inst().getEntityHelper().setEntityModel(geckoEntityModelBeen);
 
             int duration = RoleSkillController.getSkillValue(casterEntity, targetEntity, this.duration);
             if(duration > 0){
-                SchedulerFunction.RunTask runTask = SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
-                    UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(uuidString, this.mark);
+                SchedulerFunction.RunTask runTask = SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
+                    GeckoModelRemoveBeen geckoModelRemoveBeen = new GeckoModelRemoveBeen(uuidString, this.mark);
+                    UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(geckoModelRemoveBeen);
                     runTaskMap.remove(uuidString);
                 },duration);
                 runTaskMap.put(uuidString, runTask);

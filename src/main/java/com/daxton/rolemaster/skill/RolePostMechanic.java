@@ -52,7 +52,7 @@ public class RolePostMechanic implements ITargetedEntitySkill {
             if(this.enable){
                 crPlayer.startCrawling();
                 if(duration > 0){
-                    SchedulerFunction.runLater(RoleMaster.roleMaster,()->{
+                    SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(),()->{
                         crPlayer.stopCrawling();
                     }, duration);
                 }

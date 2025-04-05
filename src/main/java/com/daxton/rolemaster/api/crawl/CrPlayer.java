@@ -38,7 +38,7 @@ public class CrPlayer {
         this.barrierBlock = this.player.getLocation().getBlock();
 //        this.player.setSwimming(true);
 
-        this.moveTask = SchedulerFunction.runTimer(RoleMaster.roleMaster, ()->{
+        this.moveTask = SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
             if(this.player == null){
                 this.moveTask.cancel();
                 RolePostMechanic.crPlayerMap.remove(this.uuidString);

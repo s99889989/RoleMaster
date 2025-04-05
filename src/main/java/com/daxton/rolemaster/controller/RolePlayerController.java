@@ -44,7 +44,7 @@ public class RolePlayerController {
 
     //伺服器啟動
     public static void start(){
-        runTask =SchedulerFunction.runTimer(RoleMaster.roleMaster, ()->{
+        runTask =SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
             rolePlayerMap.forEach((s, rolePlayer) -> rolePlayer.regeneration());
         }, 0, 200);
     }

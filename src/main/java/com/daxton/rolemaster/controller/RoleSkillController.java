@@ -34,22 +34,30 @@ public class RoleSkillController {
         int i = getKeyInt(key);
         String bindSkillName = RolePlayerGetController.getBindSKill(player, i);
         if(!bindSkillName.isEmpty()){
+
             SkillBeen skillBeen = RolePlayerGetController.getSkillBeen(player, bindSkillName);
             if(skillBeen == null){
                 return;
             }
+
+
+
             String itemID = ItemFunction.getItemID(player);
             if(!skillBeen.getNeedWeapons().isEmpty()){
+
                 if(!skillBeen.getNeedWeapons().contains(itemID)){
                     return;
                 }
             }
+
             int range = skillBeen.getTargetDistance(player);
             RolePlayer rolePlayer = RolePlayerGetController.getRolePlayer(player);
 
             if(rolePlayer.isCost(bindSkillName) || castTimeMap.containsKey(uuidString)){
                return;
             }
+
+
             //施法時間
             int castTIme = skillBeen.getCastTime(player);
             if(castTIme > 0){
@@ -63,7 +71,7 @@ public class RoleSkillController {
                     moduleData.setHeight(0+"");
                     moduleData.setTransparent(255+"");
                     AtomicInteger ci = new AtomicInteger();
-                    SchedulerFunction.RunTask runTask = SchedulerFunction.runTimer(RoleMaster.roleMaster, ()->{
+                    SchedulerFunction.RunTask runTask = SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                         ci.getAndIncrement();
                         double setHeight = (double) ci.get() / (castTIme*10)  * height;
                         if(ci.get() >= castTIme*10){
@@ -134,7 +142,7 @@ public class RoleSkillController {
             if(times > 1){
                 int interval = skillBeen.getInterval(player);
                 AtomicInteger eTimes = new AtomicInteger();
-                SchedulerFunction.RunTask runTask = SchedulerFunction.runTimer(RoleMaster.roleMaster, ()->{
+                SchedulerFunction.RunTask runTask = SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
 
                     eTimes.getAndIncrement();
                     if(eTimes.get() > times){

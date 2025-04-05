@@ -7,6 +7,10 @@ import com.daxton.rolemaster.skill.RoleHoloTextMechanic;
 import com.daxton.unrealcore.application.UnrealCoreAPI;
 import com.daxton.unrealcore.application.method.SchedulerFunction;
 
+import com.daxton.unrealcore.been.entity.gecko.GeckoEntityAngleBeen;
+import com.daxton.unrealcore.been.entity.gecko.GeckoEntityAnimationsBeen;
+import com.daxton.unrealcore.been.entity.gecko.GeckoEntityModelBeen;
+import com.daxton.unrealcore.been.entity.gecko.GeckoModelRemoveBeen;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -82,7 +86,8 @@ public class RoleHolo {
             return;
         }
         String uuidString = packetRoleEntity.getUUIDString();
-        UnrealCoreAPI.inst().getEntityHelper().setEntityAnimations(uuidString, mark, animation, 0, 0);
+        GeckoEntityAnimationsBeen geckoEntityAnimationsBeen = new GeckoEntityAnimationsBeen(uuidString, this.mark, animation, 0, 0);
+        UnrealCoreAPI.inst().getEntityHelper().setEntityAnimations(geckoEntityAnimationsBeen);
     }
 
     //設置模型
@@ -92,14 +97,17 @@ public class RoleHolo {
         }
         String uuidString = packetRoleEntity.getUUIDString();
         if(modelID.isEmpty()){
-            UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(uuidString, mark);
+            GeckoModelRemoveBeen geckoModelRemoveBeen = new GeckoModelRemoveBeen(uuidString, this.mark);
+            UnrealCoreAPI.inst().getEntityHelper().removeEntityModel(geckoModelRemoveBeen);
         }else {
             float pitch = 0;
             if(packetRoleEntity.isCaster_pitch()){
                 pitch = this.packetRoleEntity.getPitch();
             }
-            UnrealCoreAPI.inst().getEntityHelper().setEntityModel(uuidString, mark, modelID);
-            UnrealCoreAPI.inst().getEntityHelper().setEntityAngle(uuidString, mark, pitch, 0);
+            GeckoEntityModelBeen geckoEntityModelBeen = new GeckoEntityModelBeen(uuidString, this.mark, modelID);
+            UnrealCoreAPI.inst().getEntityHelper().setEntityModel(geckoEntityModelBeen);
+            GeckoEntityAngleBeen geckoEntityAngleBeen = new GeckoEntityAngleBeen(uuidString, this.mark, pitch, 0);
+            UnrealCoreAPI.inst().getEntityHelper().setEntityAngle(geckoEntityAngleBeen);
 //            UnrealCoreAPI.entityModelSet(uuidString, modelID, true);
         }
 
@@ -117,7 +125,7 @@ public class RoleHolo {
         if(runTask != null){
             runTask.cancel();
         }
-        runTask = SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+        runTask = SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
             remove();
         },duration);
     }

@@ -3,6 +3,7 @@ package com.daxton.rolemaster.command;
 import com.daxton.rolemaster.RoleMaster;
 import com.daxton.rolemaster.api.entity.EntityPack;
 import com.daxton.rolemaster.controller.RoleMasterController;
+import com.daxton.rolemaster.controller.RolePlayerAddController;
 import com.daxton.rolemaster.controller.RolePlayerController;
 import com.daxton.unrealcore.application.method.SchedulerFunction;
 import org.bukkit.Bukkit;
@@ -16,54 +17,61 @@ public class RoleMasterCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Player useCommandPlayer = null;
+        if(sender instanceof Player){
+            useCommandPlayer = (Player) sender;
+        }
+
+        if (args.length == 1){
+
+            if(args[0].equalsIgnoreCase("gui")){
+                if(useCommandPlayer != null){
+                    RoleMasterController.openGUI(useCommandPlayer);
+                }
+            }
+
+
+        }
+        if(useCommandPlayer != null){
+            if(!useCommandPlayer.isOp()){
+                return true;
+            }
+        }
+
         if (args.length == 1){
             if(args[0].equalsIgnoreCase("reload")){
-                if(sender instanceof Player){
-                    Player player = (Player) sender;
-                    if(!player.isOp()){
+                if(useCommandPlayer != null){
+
+                    if(!useCommandPlayer.isOp()){
                         return true;
                     }
-                    player.sendMessage("[RoleMaster] Reload");
+                    useCommandPlayer.sendMessage("[RoleMaster] Reload");
                 }
-                RoleMaster.sendSystemLogger("Reload");
+                RoleMaster.unrealCorePlugin.sendSystemLogger("Reload");
                 RoleMasterController.reload();
                 return true;
             }
-            if(args[0].equalsIgnoreCase("gui")){
-                if(sender instanceof Player){
-                    Player player = (Player) sender;
-                    RoleMasterController.openGUI(player);
-                }
-            }
-            if(args[0].equalsIgnoreCase("test")){
-                if(sender instanceof Player){
-                    Player player = (Player) sender;
-
-                }
-
-            }
         }
-        if(sender instanceof Player){
-            Player player = (Player) sender;
-            if(!player.isOp()){
-                return true;
-            }
-            player.sendMessage("[RoleMaster] Reload");
-        }
-//        if(args.length == 2){
-//            if(args[0].equalsIgnoreCase("test")){
-//                if(sender instanceof Player){
-//                    Player player = (Player) sender;
-//                    EntityPack.setSwim(player, args[1]);
-//                }
-//            }
-//        }
+
         if(args.length == 4){
             if(args[0].equalsIgnoreCase("role")){
-                Player player = Bukkit.getPlayer(args[3]);
+                Player targetPlayer = Bukkit.getPlayer(args[3]);
                 String roleName = args[2];
-                if(player != null){
-                    RolePlayerController.changeRole(player, roleName);
+                if(targetPlayer != null){
+                    RolePlayerController.changeRole(targetPlayer, roleName);
+                }
+            }
+            if(args[0].equalsIgnoreCase("skill")){
+                if(args[1].equalsIgnoreCase("point_add")){
+                    Player targetPlayer = Bukkit.getPlayer(args[2]);
+                    String amount = args[3];
+                    if(targetPlayer != null){
+
+                        RolePlayerAddController.addPointSkillNow(targetPlayer, amount);
+                        if(useCommandPlayer != null){
+                            useCommandPlayer.sendMessage("[RoleMaster] "+targetPlayer.getDisplayName()+" 增加 "+amount+" 點技能點數!");
+                        }
+                    }
                 }
             }
         }

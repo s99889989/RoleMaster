@@ -244,7 +244,7 @@ public class RolePlayer {
             moduleData.setTransparent(200+"");
             UnrealCoreAPI.setHUD(player, moduleData);
             AtomicInteger i = new AtomicInteger();
-            SchedulerFunction.RunTask runTask =  SchedulerFunction.runTimer(RoleMaster.roleMaster, ()->{
+            SchedulerFunction.RunTask runTask =  SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                 i.getAndIncrement();
 
                 double setHeight = (double) (cd*10-i.get()) / (cd*10)  * height;

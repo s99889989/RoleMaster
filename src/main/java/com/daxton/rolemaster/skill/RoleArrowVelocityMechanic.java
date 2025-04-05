@@ -44,7 +44,7 @@ public class RoleArrowVelocityMechanic implements ITargetedEntitySkill {
             RolePlayer rolePlayer = RolePlayerGetController.getRolePlayer(player);
             rolePlayer.setArrowVelocity(amount);
             if(duration > 0){
-                SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+                SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                     rolePlayer.setArrowVelocity(0);
                 },duration);
             }

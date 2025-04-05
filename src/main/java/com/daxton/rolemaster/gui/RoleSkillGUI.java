@@ -210,7 +210,7 @@ public class RoleSkillGUI extends UnrealCoreGUI {
     //更新佔位符
     public void placeholderChange(){
 
-        runTask = SchedulerFunction.runTimer(RoleMaster.roleMaster,()->{
+        runTask = SchedulerFunction.runTimer(RoleMaster.unrealCorePlugin.getJavaPlugin(),()->{
             Map<String, String> customValueMap = new HashMap<>();
             if(Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
                 customValue.forEach((content, contentChange) -> {

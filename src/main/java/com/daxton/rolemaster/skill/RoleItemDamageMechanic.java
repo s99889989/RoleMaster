@@ -68,7 +68,7 @@ public class RoleItemDamageMechanic implements ITargetedEntitySkill {
                 itemDamage.setDamage(mark, amount);
                 if(duration > 0){
                     ItemDamage finalItemDamage = itemDamage;
-                    SchedulerFunction.runLater(RoleMaster.roleMaster, ()->{
+                    SchedulerFunction.runLater(RoleMaster.unrealCorePlugin.getJavaPlugin(), ()->{
                         finalItemDamage.removeDamage(mark);
                     },duration);
                 }
